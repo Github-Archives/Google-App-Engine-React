@@ -1,22 +1,20 @@
 import logo from './logo.svg';
+import placeholderImage from './Media/placeholder.jpeg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+        <img src={placeholderImage} alt="Logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload zzz.
+          <h3>
+            Het is al geruime tijd een bekend gegeven dat een lezer, 
+            tijdens het bekijken van de layout van een pagina, afgeleid 
+            wordt door de tekstuele inhoud.
+        </h3>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
