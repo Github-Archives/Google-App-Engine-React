@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import placeholderImage from './Media/placeholder.jpeg';
 import './App.css';
 
