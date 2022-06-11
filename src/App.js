@@ -10,7 +10,7 @@ function App() {
           <h3>
             Het is al geruime tijd een bekend gegeven dat een lezer, 
             tijdens het bekijken van de layout van een pagina, afgeleid 
-            wordt door de tekstuele inhoud. New line
+            wordt door de tekstuele inhoud!!!
         </h3>
         </p>
       </header>
