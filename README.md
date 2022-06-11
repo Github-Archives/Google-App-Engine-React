@@ -1,6 +1,6 @@
 # Reminder
 
-Since node_modules is not in the repo u need to run this after you pull
+Since node_modules is not in the repo u need to run this after you pull also cloudbuild.yaml not currently working
 
 ## npm install
 
