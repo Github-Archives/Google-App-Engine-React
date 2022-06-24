@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter>
       <>
         <MainNavigation />
-        <main>
+        <main className="main-content">
           <Routes>
             {/* <img src={placeholderImage} alt="Logo" /> */}
             <Route path="*" element={<Navigate to="/auth" replace />} />
