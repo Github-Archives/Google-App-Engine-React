@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom" // wra
 import AuthPage from "./pages/Auth"
 import EventsPage from "./pages/Events"
 import BookingsPage from "./pages/Bookings"
+import MainNavigation from "./components/Navigation/MainNavigation"
 
 import "./App.css"
 
@@ -13,13 +14,18 @@ import "./App.css"
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        {/* <img src={placeholderImage} alt="Logo" /> */}
-        <Route path="*" element={<Navigate to="/auth" replace />} />
-        <Route path="/auth" element={<AuthPage />} />
-        <Route path="/events" element={<EventsPage />} />
-        <Route path="/booking" element={<BookingsPage />} />
-      </Routes>
+      <>
+        <MainNavigation />
+        <main>
+          <Routes>
+            {/* <img src={placeholderImage} alt="Logo" /> */}
+            <Route path="*" element={<Navigate to="/auth" replace />} />
+            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/bookings" element={<BookingsPage />} />
+          </Routes>
+        </main>
+      </>
     </BrowserRouter>
   )
 }
