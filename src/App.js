@@ -1,21 +1,14 @@
-import placeholderImage from './Media/placeholder.jpeg';
-import './App.css';
+import placeholderImage from "./Media/placeholder.jpeg"
+import "./App.css"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={placeholderImage} alt="Logo" />
-        <p>
-          <h3>
-            Het is al geruime tijd een bekend gegeven dat een lezer, 
-            tijdens het bekijken van de layout van een pagina, afgeleid 
-            wordt door de tekstuele inhoud!!!
-        </h3>
-        </p>
-      </header>
+      <img src={placeholderImage} alt="Logo" />
+
+      <h1>It works!</h1>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
