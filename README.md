@@ -6,7 +6,7 @@ Since node_modules is not in the repo u need to run this after you pull also clo
 
 # Current Tutorial
 
-https://www.youtube.com/watch?v=JmFSGqbmzT4&list=PL55RiY5tL51rG1x02Yyj93iypUuHYXcB_&index=11
+https://www.youtube.com/watch?v=VdwH3RDRXNM&list=PL55RiY5tL51rG1x02Yyj93iypUuHYXcB_&index=13
 
 # Earlier Tutorial
 
