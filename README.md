@@ -1,3 +1,10 @@
+# HEY THIS APP IN THIS BRANCH IS CURRENTLY BROKEN!!
+
+In the tutorial series i've been following he uses class based Context.. here https://www.youtube.com/watch?v=wMg_b1zZcag&list=PL55RiY5tL51rG1x02Yyj93iypUuHYXcB_&index=15
+
+I want to convert this to functional based Context like shown here
+https://www.youtube.com/watch?v=5LrDIWkK_Bc&t=82s
+
 # Reminder
 
 Since node_modules is not in the repo u need to run this after you pull also cloudbuild.yaml not currently working

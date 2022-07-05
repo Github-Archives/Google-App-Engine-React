@@ -1,14 +1,21 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useRef } from "react"
+
+import AuthContext from "../context/auth-context"
 
 import "./Auth.css"
 // my hook based version
 function AuthPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
+  // behind the scenes react makes this connection & gives us access to the context data in this variable
+  // let contextType = AuthContext
+  const contextType = AuthContext
+
   const emailEl = useRef("")
   const passwordEl = useRef("")
 
   const switchModeHandler = () => {
+    // console.log("isLoggedIn 1: ", isLoggedIn)
     setIsLoggedIn(!isLoggedIn)
     console.log("isLoggedIn: ", isLoggedIn)
   }
@@ -73,7 +80,18 @@ function AuthPage() {
         return res.json() // automatically extract & parse response body
       })
       .then((resData) => {
-        console.log(resData) // log the result data
+        console.log("resData a: ", resData) // log the result data
+        // if (isLoggedIn) {
+        // true = we know there's a token because has already logged in
+        if (resData.data.login.token) {
+          // just check if we have a token/therefore are already logged in
+          console.log("You are already logged in")
+          // context.login(resData.data.login.token, resData.data.login.userId) // token & userId are both in auth-context.js
+
+          //           <AuthContext.Consumer>
+          //               {userId => <h1>{userId}</h1>}
+          // </AuthContext.Consumer>
+        }
       })
       .catch((err) => {
         console.log("Error: ", err)
