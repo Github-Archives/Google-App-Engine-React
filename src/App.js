@@ -8,6 +8,7 @@ import BookingsPage from "./pages/Bookings"
 import MainNavigation from "./components/Navigation/MainNavigation"
 
 import AlertModal from "./components/Modals/AlertModal/AlertModal"
+import Toast from "./components/Toasts/Toast"
 
 import "./App.css"
 
@@ -20,6 +21,7 @@ function App() {
         <MainNavigation />
         <main className="main-content">
           <AlertModal />
+          <Toast text={"Well hi"} />
           <Routes>
             {/* <img src={placeholderImage} alt="Logo" /> */}
             <Route path="*" element={<Navigate to="/auth" replace />} />
