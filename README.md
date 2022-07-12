@@ -1,3 +1,14 @@
+# #14 Using the Token
+
+"We are able to send our signup and login requests from the React app to the backend. But we’re not using that token thereafter so changing this is our next step!"
+https://www.youtube.com/watch?v=wMg_b1zZcag&list=PL55RiY5tL51rG1x02Yyj93iypUuHYXcB_&index=17
+
+I was not able to get this to work trying to make functional programming versions of this class based setup.
+
+Token can be found throughout the code; figure out how to use it.
+
+Versions of attempts are not working in local branches UseToken.
+
 # Reminder
 
 Since node_modules is not in the repo u need to run this after you pull also cloudbuild.yaml not currently working
