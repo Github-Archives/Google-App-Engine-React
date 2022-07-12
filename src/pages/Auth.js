@@ -82,6 +82,8 @@ function AuthPage() {
 
   return (
     <form className="auth-form" onSubmit={submitHandler}>
+      <div>Is user logged in?</div>
+      <div>{isLoggedIn ? "YES" : "NO"}</div>
       <div className="form-control">
         <label htmlFor="email">E-Mail</label>
         <input type="email" id="email" ref={emailEl} />
@@ -91,9 +93,9 @@ function AuthPage() {
         <input type="password" id="password" ref={passwordEl} />
       </div>
       <div className="form-actions">
-        <button type="submit">Submit</button>
+        <button type="submit">{isLoggedIn ? "Login" : "Signup"}</button>
         <button type="button" onClick={switchModeHandler}>
-          Switch to {isLoggedIn ? "Signup" : "Login"}
+          Go to {isLoggedIn ? "Signup" : "Login"}
         </button>
       </div>
     </form>
