@@ -7,6 +7,8 @@ import EventsPage from "./pages/Events"
 import BookingsPage from "./pages/Bookings"
 import MainNavigation from "./components/Navigation/MainNavigation"
 
+import AlertModal from "./components/Modals/AlertModal/AlertModal"
+
 import "./App.css"
 
 // *note
@@ -17,6 +19,7 @@ function App() {
       <>
         <MainNavigation />
         <main className="main-content">
+          <AlertModal />
           <Routes>
             {/* <img src={placeholderImage} alt="Logo" /> */}
             <Route path="*" element={<Navigate to="/auth" replace />} />
