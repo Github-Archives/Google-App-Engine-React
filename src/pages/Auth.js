@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 
+import Toast from "../components/Toasts/Toast"
+
 import "./Auth.css"
 // my hook based version
 function AuthPage() {
@@ -83,7 +85,7 @@ function AuthPage() {
   return (
     <form className="auth-form" onSubmit={submitHandler}>
       <div>Is user logged in?</div>
-      <div>{isLoggedIn ? "YES" : "NO"}</div>
+      {/* <Toast text={isLoggedIn ? "Yes" : "No"} /> */}
       <div className="form-control">
         <label htmlFor="email">E-Mail</label>
         <input type="email" id="email" ref={emailEl} />
@@ -95,7 +97,11 @@ function AuthPage() {
       <div className="form-actions">
         <button type="submit">{isLoggedIn ? "Login" : "Signup"}</button>
         <button type="button" onClick={switchModeHandler}>
-          Go to {isLoggedIn ? "Signup" : "Login"}
+          Go to
+          {/* {isLoggedIn ? "Signup" : "Login"} */}
+          {isLoggedIn
+            ? "Signup" && <Toast text={"Signup Page"} />
+            : "Login" && <Toast text={"Login Page"} />}
         </button>
       </div>
     </form>

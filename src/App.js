@@ -21,7 +21,7 @@ function App() {
         <MainNavigation />
         <main className="main-content">
           <AlertModal />
-          <Toast text={"Well hi"} />
+          {/* <Toast text={"Well hi"} /> */}
           <Routes>
             {/* <img src={placeholderImage} alt="Logo" /> */}
             <Route path="*" element={<Navigate to="/auth" replace />} />
