@@ -104,9 +104,10 @@ function AuthPage() {
         <input type="password" id="password" ref={passwordEl} />
       </div>
       <div className="form-actions">
-        <Button type="submit" text={isLoggedIn ? "Login" : "Signup"}>
-          {/* {isLoggedIn ? "Login" : "Signup"} */}
-        </Button>
+        {/* <Button type="submit" text={isLoggedIn ? "Login" : "Signup"}> */}
+        <Button type="submit" text={isLoggedIn ? "Login" : "Signup"} />
+        {/* {isLoggedIn ? "Login" : "Signup"} */}
+        {/* </Button> */}
         {/* TODO: couldn't figure out how to make this a Button component with it's onClick() working */}
         <button type="button" onClick={switchModeHandler}>
           {isLoggedIn ? "Go To Signup Form" : "Go To Login Form"}
@@ -114,7 +115,7 @@ function AuthPage() {
             ? "Signup" && <Toast text={"Signup Page"} />
             : "Login" && <Toast text={"Login Page"} />} */}
         </button>
-        {toastString && <Toast text={toastString} />}
+        <Toast text={toastString} />
       </div>
     </form>
   )

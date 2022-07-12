@@ -4,14 +4,22 @@ import Toast from "../Toasts/Toast"
 
 import "./Button.css"
 
-const Button = (props) => {
-  console.log("\tprops: ", props.text)
+// const Button = (props) => {
+//   console.log("\tprops: ", props.text)
 
+//   return (
+//     <>
+//       <Toast text={props.text} />
+//       <button>{props.text}</button>
+//     </>
+//   )
+// }
+
+const Button = ({ type = "button", onClick, children }) => {
   return (
-    <>
-      <Toast text={props.text} />
-      <button>{props.text}</button>
-    </>
+    <button type={type} onClick={onClick}>
+      {children}
+    </button>
   )
 }
 

@@ -15,13 +15,18 @@ const Toast = (text) => {
     // setText(text.text)
 
     // return toast(text.text)
-    toast(text.text)
+    console.log("\ntextHere:  ", textHere)
+    return toast(textHere)
   }
+
+  useEffect(() => {
+    setText(text.text)
+  }, [text])
 
   return (
     <div>
       {/* <button onClick={notify}>Notify !</button> */}
-      Entered Form: {text.text}
+      {/* Entered Form: {text.text} */}
       {notify()}
       {/* {textHere} */}
       <ToastContainer />
