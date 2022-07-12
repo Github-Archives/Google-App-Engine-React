@@ -1,10 +1,18 @@
 import React from "react"
 
+import Toast from "../Toasts/Toast"
+
 import "./Button.css"
 
 const Button = (props) => {
-  console.log("\t\tprops: ", props)
-  return <button>{props.text}</button>
+  console.log("\tprops: ", props.text)
+
+  return (
+    <>
+      <Toast text={props.text} />
+      <button>{props.text}</button>
+    </>
+  )
 }
 
 export default Button

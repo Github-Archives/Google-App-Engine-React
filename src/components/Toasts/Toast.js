@@ -6,28 +6,27 @@ import "react-toastify/dist/ReactToastify.css"
 // import 'react-toastify/dist/ReactToastify.min.css';
 
 const Toast = (text) => {
-  console.log("\ttext: ", text.text)
+  const [textHere, setText] = useState("")
+  //   console.log("entered form: ", text.text)
 
-  const notify = () => toast(text.text)
+  const notify = () => {
+    console.log("\t\nInside notify!!")
+    console.log("\ttext.text!!", text.text)
+    // setText(text.text)
+
+    // return toast(text.text)
+    toast(text.text)
+  }
 
   return (
     <div>
-      <button onClick={notify}>Notify !</button>
-      {/* <ToastContainer /> */}
+      {/* <button onClick={notify}>Notify !</button> */}
+      Entered Form: {text.text}
+      {notify()}
+      {/* {textHere} */}
+      <ToastContainer />
     </div>
   )
 }
 
 export default Toast
-
-//   const [toastText, setToastText] = useState("")
-
-//   const updateToastText = () => {
-//     setToastText(text)
-//   }
-
-//   useEffect(() => {
-//     setToastText(text)
-//     console.log("\n\ttoastText", toastText)
-//   }, [toast])
-//   const notify = () => toast("Wow so easy !")

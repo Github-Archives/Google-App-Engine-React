@@ -6,6 +6,7 @@ import "./Auth.css"
 
 function AuthPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [toastString, setToastString] = useState("No Toast String :(")
 
   const emailEl = useRef("")
   const passwordEl = useRef("")
@@ -69,21 +70,31 @@ function AuthPage() {
     })
       .then((res) => {
         if (res.status !== 200 && res.status !== 201) {
+          setToastString("Unknown login error")
           throw new Error("Failed! \t[res.status !== 200 res.status !== 201]")
         }
         return res.json() // automatically extract & parse response body
       })
       .then((resData) => {
-        console.log(resData) // log the result data
+        console.log("here => ", resData) // log the result data
+        if (resData.errors) {
+          setToastString(resData?.errors[0]?.message)
+        }
+
+        // setToastString(resData?.errors[0]?.message)
       })
       .catch((err) => {
         console.log("Error: ", err)
+        // if (err?.errors[0]?.message) {
+        // setToastString(err?.errors[0]?.message)
+        // setToastString(err)
+        // }
       })
   }
 
   return (
     <form className="auth-form" onSubmit={submitHandler}>
-      <div>Is user logged in?</div>
+      <p>{toastString}</p>
       <div className="form-control">
         <label htmlFor="email">E-Mail</label>
         <input type="email" id="email" ref={emailEl} />
@@ -96,12 +107,14 @@ function AuthPage() {
         <Button type="submit" text={isLoggedIn ? "Login" : "Signup"}>
           {/* {isLoggedIn ? "Login" : "Signup"} */}
         </Button>
+        {/* TODO: couldn't figure out how to make this a Button component with it's onClick() working */}
         <button type="button" onClick={switchModeHandler}>
           {isLoggedIn ? "Go To Signup Form" : "Go To Login Form"}
           {/* {isLoggedIn
             ? "Signup" && <Toast text={"Signup Page"} />
             : "Login" && <Toast text={"Login Page"} />} */}
         </button>
+        {toastString && <Toast text={toastString} />}
       </div>
     </form>
   )
