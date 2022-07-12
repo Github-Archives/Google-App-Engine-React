@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from "react"
-
+import React, { useState, useRef } from "react"
+import Button from "../components/Buttons/Button"
 import Toast from "../components/Toasts/Toast"
 
 import "./Auth.css"
-// my hook based version
+
 function AuthPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
@@ -12,14 +12,13 @@ function AuthPage() {
 
   const switchModeHandler = () => {
     setIsLoggedIn(!isLoggedIn)
-    console.log("isLoggedIn: ", isLoggedIn)
+    // console.log("isLoggedIn: ", isLoggedIn)
   }
 
   const submitHandler = (event) => {
     event.preventDefault() // make sure no request is sent right now
     const email = emailEl.current.value
     const password = passwordEl.current.value
-
     // console.log(typeof email)
     // console.log("1email/password: ", email, password)
 
@@ -85,7 +84,6 @@ function AuthPage() {
   return (
     <form className="auth-form" onSubmit={submitHandler}>
       <div>Is user logged in?</div>
-      {/* <Toast text={isLoggedIn ? "Yes" : "No"} /> */}
       <div className="form-control">
         <label htmlFor="email">E-Mail</label>
         <input type="email" id="email" ref={emailEl} />
@@ -95,13 +93,14 @@ function AuthPage() {
         <input type="password" id="password" ref={passwordEl} />
       </div>
       <div className="form-actions">
-        <button type="submit">{isLoggedIn ? "Login" : "Signup"}</button>
+        <Button type="submit" text={isLoggedIn ? "Login" : "Signup"}>
+          {/* {isLoggedIn ? "Login" : "Signup"} */}
+        </Button>
         <button type="button" onClick={switchModeHandler}>
-          Go to
-          {/* {isLoggedIn ? "Signup" : "Login"} */}
-          {isLoggedIn
+          {isLoggedIn ? "Go To Signup Form" : "Go To Login Form"}
+          {/* {isLoggedIn
             ? "Signup" && <Toast text={"Signup Page"} />
-            : "Login" && <Toast text={"Login Page"} />}
+            : "Login" && <Toast text={"Login Page"} />} */}
         </button>
       </div>
     </form>

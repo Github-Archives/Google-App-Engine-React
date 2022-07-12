@@ -13,8 +13,7 @@ const Toast = (text) => {
   return (
     <div>
       <button onClick={notify}>Notify !</button>
-      {/* {notify} */}
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </div>
   )
 }
