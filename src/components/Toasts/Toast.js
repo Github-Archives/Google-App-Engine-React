@@ -1,3 +1,5 @@
+// ! This file is fucked !
+
 import React, { useState, useEffect } from "react"
 import { ToastContainer, toast } from "react-toastify"
 
@@ -10,12 +12,12 @@ const Toast = (text) => {
   //   console.log("entered form: ", text.text)
 
   const notify = () => {
-    console.log("\t\nInside notify!!")
-    console.log("\ttext.text!!", text.text)
+    // console.log("\t\nInside notify!!")
+    // console.log("\ttext.text!!", text.text)
     // setText(text.text)
 
     // return toast(text.text)
-    console.log("\ntextHere:  ", textHere)
+    // console.log("\ntextHere:  ", textHere)
     return toast(textHere)
   }
 

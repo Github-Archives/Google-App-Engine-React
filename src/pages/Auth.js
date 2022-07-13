@@ -69,14 +69,20 @@ function AuthPage() {
       },
     })
       .then((res) => {
+        // res = everything in the response including header & meta data
+        console.log("\n\t\tres: ", res)
         if (res.status !== 200 && res.status !== 201) {
-          setToastString("Unknown login error")
+          setToastString("Status code: " + res.status)
+          // login(email: "${email}", password: "${password}") {
           throw new Error("Failed! \t[res.status !== 200 res.status !== 201]")
         }
+        // console.log("\n\t\tres.json: ", res.json)
         return res.json() // automatically extract & parse response body
       })
       .then((resData) => {
-        console.log("here => ", resData) // log the result data
+        // stripped down response with just the data
+        console.log("\n\t\tresData: ", resData)
+        // console.log("here => ", resData) // log the result data
         if (resData.errors) {
           setToastString(resData?.errors[0]?.message)
         }
