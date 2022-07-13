@@ -6,7 +6,7 @@ import "./Auth.css"
 
 function AuthPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [toastString, setToastString] = useState("No Toast String :(")
+  const [toastString, setToastString] = useState()
 
   const emailEl = useRef("")
   const passwordEl = useRef("")
@@ -20,8 +20,6 @@ function AuthPage() {
     event.preventDefault() // make sure no request is sent right now
     const email = emailEl.current.value
     const password = passwordEl.current.value
-    // console.log(typeof email)
-    // console.log("1email/password: ", email, password)
 
     if (
       email.value?.trim().length === 0 || // ?. optional chaining
@@ -70,31 +68,23 @@ function AuthPage() {
     })
       .then((res) => {
         // res = everything in the response including header & meta data
-        console.log("\n\t\tres: ", res)
+        // console.log("\n\t\tres: ", res)
         if (res.status !== 200 && res.status !== 201) {
           setToastString("Status code: " + res.status)
-          // login(email: "${email}", password: "${password}") {
           throw new Error("Failed! \t[res.status !== 200 res.status !== 201]")
         }
-        // console.log("\n\t\tres.json: ", res.json)
+        setToastString(res.statusText === "OK" ? "Ok" : null)
         return res.json() // automatically extract & parse response body
       })
       .then((resData) => {
         // stripped down response with just the data
-        console.log("\n\t\tresData: ", resData)
-        // console.log("here => ", resData) // log the result data
+        console.log("resData => ", resData) // log the result data
         if (resData.errors) {
           setToastString(resData?.errors[0]?.message)
         }
-
-        // setToastString(resData?.errors[0]?.message)
       })
       .catch((err) => {
         console.log("Error: ", err)
-        // if (err?.errors[0]?.message) {
-        // setToastString(err?.errors[0]?.message)
-        // setToastString(err)
-        // }
       })
   }
 
@@ -110,14 +100,9 @@ function AuthPage() {
         <input type="password" id="password" ref={passwordEl} />
       </div>
       <div className="form-actions">
-        {/* <Button type="submit" text={isLoggedIn ? "Login" : "Signup"}> */}
         <Button type="submit">{isLoggedIn ? "Login" : "Signup"}</Button>
-        {/* TODO: couldn't figure out how to make this a Button component with it's onClick() working */}
         <Button type="button" onClick={switchModeHandler}>
           {isLoggedIn ? "Go To Signup Form" : "Go To Login Form"}
-          {/* {isLoggedIn
-            ? "Signup" && <Toast text={"Signup Page"} />
-            : "Login" && <Toast text={"Login Page"} />} */}
         </Button>
         <Toast text={toastString} />
       </div>

@@ -11,7 +11,8 @@ const Toast = (text) => {
   const [textHere, setText] = useState("")
   //   console.log("entered form: ", text.text)
 
-  const notify = () => {
+  //   const notify = () => {
+  function notify() {
     // console.log("\t\nInside notify!!")
     // console.log("\ttext.text!!", text.text)
     // setText(text.text)
@@ -31,7 +32,7 @@ const Toast = (text) => {
       {/* Entered Form: {text.text} */}
       {notify()}
       {/* {textHere} */}
-      <ToastContainer />
+      <ToastContainer newestOnTop autoClose={1000} />
     </div>
   )
 }
