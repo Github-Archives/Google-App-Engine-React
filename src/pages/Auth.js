@@ -8,6 +8,8 @@ function AuthPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [toastString, setToastString] = useState()
 
+  const [userToken, setUserToken] = useState("")
+
   const emailEl = useRef("")
   const passwordEl = useRef("")
 
@@ -74,11 +76,18 @@ function AuthPage() {
           throw new Error("Failed! \t[res.status !== 200 res.status !== 201]")
         }
         setToastString(res.statusText === "OK" ? "Ok" : null)
+        // console.log("res.json(): ", res.json()) // not sure really what this return res.json() is for completely yet
         return res.json() // automatically extract & parse response body
       })
       .then((resData) => {
         // stripped down response with just the data
         console.log("resData => ", resData) // log the result data
+
+        if (resData?.data?.login?.token !== undefined) {
+          const token = resData.data.login.token
+          setUserToken(token)
+        }
+
         if (resData.errors) {
           setToastString(resData?.errors[0]?.message)
         }
@@ -90,7 +99,8 @@ function AuthPage() {
 
   return (
     <form className="auth-form" onSubmit={submitHandler}>
-      <p>{toastString}</p>
+      {/* <p>{toastString}</p> */}
+      <p>{userToken}</p>
       <div className="form-control">
         <label htmlFor="email">E-Mail</label>
         <input type="email" id="email" ref={emailEl} />
