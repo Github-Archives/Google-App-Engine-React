@@ -1,6 +1,8 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useContext } from "react"
 import Button from "../components/Buttons/Button"
 import Toast from "../components/Toasts/Toast"
+
+import { TokenContext } from "../App"
 
 import "./Auth.css"
 
@@ -9,6 +11,8 @@ function AuthPage() {
   const [toastString, setToastString] = useState()
 
   const [userToken, setUserToken] = useState("")
+
+  const value = useContext(TokenContext)
 
   const emailEl = useRef("")
   const passwordEl = useRef("")
@@ -100,6 +104,8 @@ function AuthPage() {
   return (
     <form className="auth-form" onSubmit={submitHandler}>
       {/* <p>{toastString}</p> */}
+      <p>yo</p>
+      <p>{value}</p>
       <p>{userToken}</p>
       <div className="form-control">
         <label htmlFor="email">E-Mail</label>

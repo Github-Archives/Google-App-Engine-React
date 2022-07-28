@@ -1,5 +1,6 @@
 import placeholderImage from "./Media/placeholder.jpeg"
 
+import React, { useState, createContext } from "react"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom" // wrap around elements you want to use routing on
 
 import AuthPage from "./pages/Auth"
@@ -12,26 +13,34 @@ import Toast from "./components/Toasts/Toast"
 
 import "./App.css"
 
+// Here's where context begins for our token
+export const TokenContext = createContext("Default Value")
+// const MyContext = React.createContext(defaultValue);
+
 // *note
 //  Redirect & Switch were replaced with Navigate & Routes
 function App() {
+  const [token, setToken] = useState("")
+  const value = "My Context Value"
   return (
-    <BrowserRouter>
-      <>
-        <MainNavigation />
-        <main className="main-content">
-          <AlertModal />
-          {/* <Toast text={"Well hi"} /> */}
-          <Routes>
-            {/* <img src={placeholderImage} alt="Logo" /> */}
-            <Route path="*" element={<Navigate to="/auth" replace />} />
-            <Route path="/auth" element={<AuthPage />} />
-            <Route path="/events" element={<EventsPage />} />
-            <Route path="/bookings" element={<BookingsPage />} />
-          </Routes>
-        </main>
-      </>
-    </BrowserRouter>
+    <TokenContext.Provider value={value}>
+      <BrowserRouter>
+        <>
+          <MainNavigation />
+          <main className="main-content">
+            <AlertModal />
+            {/* <Toast text={"Well hi"} /> */}
+            <Routes>
+              {/* <img src={placeholderImage} alt="Logo" /> */}
+              <Route path="*" element={<Navigate to="/auth" replace />} />
+              <Route path="/auth" element={<AuthPage />} />
+              <Route path="/events" element={<EventsPage />} />
+              <Route path="/bookings" element={<BookingsPage />} />
+            </Routes>
+          </main>
+        </>
+      </BrowserRouter>
+    </TokenContext.Provider>
   )
 }
 
