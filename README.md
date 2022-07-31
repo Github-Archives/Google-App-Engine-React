@@ -18,6 +18,13 @@ Since node_modules is not in the repo u need to run this after you pull also clo
 Use this tool to create ideas for custom icons with very specific prompts
 https://www.craiyon.com/
 
+# Libraries:
+
+# react-toastify
+
+Github: https://github.com/fkhadra/react-toastify
+Website: https://fkhadra.github.io/react-toastify/introduction/
+
 ## npm install
 
 # Current Tutorial

@@ -1,3 +1,4 @@
+/* 
 .auth-form {
     width: 25rem;
     max-width: 80%;
@@ -16,9 +17,9 @@
 
 .form-control {
     margin-bottom: 1rem;
-}
+} */
 
-/* .form-actions button {
+.form-actions button {
     background: #01d1d1;
     font: inherit;
     border: 1px solid #01d1d1;
@@ -34,4 +35,4 @@
 .form-actions button:active {
     background: #01a7a7;
     border-color: #01a7a7;
-} */
+}
