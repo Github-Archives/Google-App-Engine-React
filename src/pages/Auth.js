@@ -105,7 +105,8 @@ function AuthPage() {
 
   return (
     <form className="auth-form" onSubmit={submitHandler}>
-      {/* <p>{toastString}</p> */}
+      <p>Toast String:</p>
+      <p>{toastString}</p>
       {/* <p>Context Value: {value}</p> */}
       {/* <p>User Token: {userToken}</p> */}
       <p>Context User Token: {userSessionToken}</p>
