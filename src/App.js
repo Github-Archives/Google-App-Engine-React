@@ -20,13 +20,19 @@ export const TokenContext = createContext("Default Value")
 // *note
 //  Redirect & Switch were replaced with Navigate & Routes
 function App() {
-  const [token, setToken] = useState("")
-  const value = "My Context Value"
+  const [userSessionToken, setUserSessionToken] = useState()
+  console.log("Context userSessionToken in main App: ", userSessionToken)
+
+  const value = "My Context Value" // temp
+
   return (
-    <TokenContext.Provider value={value}>
+    // https://thewebdev.info/2021/09/19/how-to-update-a-react-context-from-inside-a-child-component/
+    <TokenContext.Provider value={[userSessionToken, setUserSessionToken]}>
+      {/* <TokenContext.Provider value={value}> */}
       <BrowserRouter>
         <>
           <MainNavigation />
+
           <main className="main-content">
             <AlertModal />
             {/* <Toast text={"Well hi"} /> */}

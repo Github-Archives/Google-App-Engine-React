@@ -10,9 +10,10 @@ function AuthPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [toastString, setToastString] = useState()
 
-  const [userToken, setUserToken] = useState("")
+  // new for context
+  const [userSessionToken, setUserSessionToken] = useContext(TokenContext)
 
-  const value = useContext(TokenContext)
+  // const value = useContext(TokenContext)
 
   const emailEl = useRef("")
   const passwordEl = useRef("")
@@ -89,7 +90,8 @@ function AuthPage() {
 
         if (resData?.data?.login?.token !== undefined) {
           const token = resData.data.login.token
-          setUserToken(token)
+          // setUserToken(token)
+          setUserSessionToken(token)
         }
 
         if (resData.errors) {
@@ -104,9 +106,9 @@ function AuthPage() {
   return (
     <form className="auth-form" onSubmit={submitHandler}>
       {/* <p>{toastString}</p> */}
-      <p>yo</p>
-      <p>{value}</p>
-      <p>{userToken}</p>
+      {/* <p>Context Value: {value}</p> */}
+      {/* <p>User Token: {userToken}</p> */}
+      <p>Context User Token: {userSessionToken}</p>
       <div className="form-control">
         <label htmlFor="email">E-Mail</label>
         <input type="email" id="email" ref={emailEl} />
